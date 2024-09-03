@@ -5,27 +5,27 @@ services:
     volumes:
       - data:/data/db
     env_file:
-      - ./env/mongo.env
+      - env/mongo.env
   backend:
-    build: ./backend
+    build: backend
     container_name: 'goal-back-app'
     volumes:
       - ./backend:/app
       - logs:/app/logs
       - /app/node_modules
     env_file:
-      - ./env/backend.env
+      - env/backend.env
     ports:
       - '80:80'
     depends_on:
       - mongodb
   frontend:
-    build: ./frontend
+    build: frontend
     container_name: 'goal-front-app'
     volumes:
       - ./frontend/src:/app/src
     env_file:
-      - ./env/mongo.env
+      - env/mongo.env
     ports:
       - '3000:3000'
     stdin_open: true
