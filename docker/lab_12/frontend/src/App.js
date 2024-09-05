@@ -4,7 +4,7 @@ import GoalInput from './components/goals/GoalInput';
 import CourseGoals from './components/goals/CourseGoals';
 import ErrorAlert from './components/UI/ErrorAlert';
 
-const backendUrl = process.env.NODE_ENV === 'development' ?
+const backendUrl = process.env.NODE_ENV === 'development' ? 1 : 2
 
 function App() {
     const [loadedGoals, setLoadedGoals] = useState([]);
