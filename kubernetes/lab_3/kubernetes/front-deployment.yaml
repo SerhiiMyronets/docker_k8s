@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: front
+          image: serhiimyronets/demo-front:latest
+#          env:
+#            - name: AUTH_ADDRESS
+#              value: auth-service.default
+#            - name: TASKS_FOLDER
+#              value: tasks

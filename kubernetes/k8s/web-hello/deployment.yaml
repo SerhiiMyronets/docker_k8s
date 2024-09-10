@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-hello
+  labels:
+    app: web-hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-hello
+  template:
+    metadata:
+      name: web-hello
+      labels:
+        app: web-hello
+    spec:
+      containers:
+        - name: web-hello
+          image: serhiimyronets/web-hello
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+      restartPolicy: Always
+      
